@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
+
+import static java.lang.System.*;
 
 public class Person_task1 {
     // поля для класса Person:
@@ -11,7 +14,7 @@ public class Person_task1 {
     private String Mother;
     private String Father;
     private String gender;
-    List<Person_task1> children;
+    static List<Person_task1> children;
 
 
     // конструктор для класса Person:
@@ -68,14 +71,24 @@ public class Person_task1 {
     public static void main (String[] args) {
         // выделяется память на класс Person
         Map<String, Person_task1> allPersons = new HashMap<String, Person_task1>();
-        Person_task1 person_0 = new Person_task1("Victoria", "Vasylisa", "Misha", "women" );
-        Person_task1 person_1 = new Person_task1("Ivan", "Masha", "Pety", "men" );
+        Person_task1 person_0 = new Person_task1("Victoria", "Vasylisa", "Misha", "women");
+        Person_task1 person_1 = new Person_task1("Ivan", "Masha", "Pety", "men");
         Person_task1 person_2 = new Person_task1("Viktor", "Katy", "Vasi", "men");
-        Person_task1 person_3 = new Person_task1("Vita", "Soul", "Gek", "women" );
-        System.out.println(person_0.getParent());
+        Person_task1 person_3 = new Person_task1("Vita", "Soul", "Gek", "women");
+        children.add(person_0);
+        children.add(person_1);
+        children.add(person_2);
+        children.add(person_3);
+        out.println(person_0.getParent());
 
+
+        String[] array = new String[children.size()];
+        children.toArray(array);
+        for(int i = 0; i< array.length; i++) {
+            System.out.println(array[i]);
+        }
 
     }
 
-
 }
+
